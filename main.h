@@ -7,37 +7,46 @@
 #include <cmath>
 
 //Chapter 5, exercise #7 - (Program that solves for the quadratic roots when given the input of a, b, and c.)
+//The general formula for solving an equation in the format of ax^2+bx+c is x = (-b (+/-) sqrt(b^2-4ac))/2a
 
+//This method is used to find the disciminant which is the math found under the square root in the equation.
 double discriminant(double a, double b, double c)
 {
   double disc = (b*b)-(4*a*c);
   return disc;
 }
 
+//This method is used when a is set to 0.
 double alpha_zero(double b, double c)
 {
   double a0 = (-c/b);
   return a0;
 }
 
+
+//This method solves for the root where the formula uses -b+sqrt....
 double root1(double a, double b, double disc)
 {
   double root = ((-b+sqrt(disc))/(2*a));
   return root;
 }
 
+//This method solves for the root where the formula uses -b-sqrt....
 double root2(double a, double b, double disc)
 {
   double nroot = ((-b-sqrt(disc))/(2*a));
   return nroot;
 }
 
+
+//This solves for the imaginary root when the discriminant is negative, as negatives under a squareroot create some issues.
 double imaginary_1(double a, double b)
 {
   double imroot = (-b/(2*a));
   return imroot;
 }
 
+//This solves for the second imaginary root when the discriminant is negative, as negatives under a squareroot create some issues.
 double imaginary_2(double a, double disc)
 {
   double imroot = (sqrt(-disc)/(2*a));
