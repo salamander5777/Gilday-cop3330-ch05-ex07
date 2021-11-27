@@ -63,7 +63,8 @@ int main() {
   std::cin >> c;
 
   double disc = discriminant(a, b, c);
-
+  
+  //This 'if' staircase verifies if the input of 'a' is 0 and then whether 'b' & 'c' are also 0, as these can create different errors in solving for roots.
   if(a == 0){
     if(b == 0){
       if(c == 0){
@@ -77,18 +78,18 @@ int main() {
       std::cout << "The root is: " << alpha_zero(b, c);
     } 
   }
-  else if(disc < 0){
+  else if(disc < 0){ //The roots would be imaginary as the formula can not normally account for sqrt(negative#)
     std::cout << "The roots of are: " << imaginary_1(a, b) << "+" << imaginary_2(a, disc) << "i, " << imaginary_1(a, b) << "-" << imaginary_2(a, disc) << "i";
   }
-  else if(disc == 0){
+  else if(disc == 0){ //There is only one root as there is no +/- for a discriminant of 0.
     double x = root1(a, b, disc);
     std::cout << "The root is: " << x;
   }
-  else if(disc > 0){
+  else if(disc > 0){ //The discriminant is positive which implies the existence of two normal roots.
     double x1 = root1(a, b, disc);
     double x2 = root2(a, b, disc);
     std::cout << "The roots are: " << x1 << ", " << x2;
   }
 
   //The results appear plausible and are believed to be correct as they appear to be the same results when worked out by hand or when compared to the results of an online quadratic calculator.
-} 
+}
