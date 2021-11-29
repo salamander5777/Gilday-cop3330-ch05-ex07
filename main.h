@@ -23,7 +23,6 @@ double alpha_zero(double b, double c)
   return a0;
 }
 
-
 //This method solves for the root where the formula uses -b+sqrt....
 double root1(double a, double b, double disc)
 {
@@ -38,30 +37,22 @@ double root2(double a, double b, double disc)
   return nroot;
 }
 
-
-//This solves for the imaginary root when the discriminant is negative, as negatives under a squareroot create some issues.
+//This method solves for the imaginary root when the discriminant is negative, as negatives under a squareroot create some issues.
 double imaginary_1(double a, double b)
 {
   double imroot = (-b/(2*a));
   return imroot;
 }
 
-//This solves for the second imaginary root when the discriminant is negative, as negatives under a squareroot create some issues.
+//This method solves for the second imaginary root when the discriminant is negative, as negatives under a squareroot create some issues.
 double imaginary_2(double a, double disc)
 {
   double imroot = (sqrt(-disc)/(2*a));
   return imroot;
 }
 
-int main() {
-  double a, b, c;
-  std::cout << "Input the value of 'a': ";
-  std::cin >> a;
-  std::cout << "Input the value of 'b': ";
-  std::cin >> b;
-  std::cout << "Input the value of 'c': ";
-  std::cin >> c;
-
+//This method is used to call the respective methods used to roots.
+void root_solver(double a, double b, double c){
   double disc = discriminant(a, b, c);
   
   //This 'if' staircase verifies if the input of 'a' is 0 and then whether 'b' & 'c' are also 0, as these can create different errors in solving for roots.
@@ -90,6 +81,4 @@ int main() {
     double x2 = root2(a, b, disc);
     std::cout << "The roots are: " << x1 << ", " << x2;
   }
-
-  //The results appear plausible and are believed to be correct as they appear to be the same results when worked out by hand or when compared to the results of an online quadratic calculator.
 }
